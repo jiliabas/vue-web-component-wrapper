@@ -25,7 +25,7 @@ export default function wrap (Vue, Component) {
       : Component
 
     // spread props
-    //options.props = spreadProps(options)
+    // options.props = spreadProps(options)
     // extract props info
     const propsList = Array.isArray(options.props)
       ? options.props
@@ -38,7 +38,7 @@ export default function wrap (Vue, Component) {
       return map
     }, {})
 
-      console.log(hyphenatedPropsList, camelizedPropsList, originalPropsAsObject, camelizedPropsMap);
+    console.log(hyphenatedPropsList, camelizedPropsList, originalPropsAsObject, camelizedPropsMap)
     // proxy $emit to native DOM events
     injectHook(options, 'beforeCreate', function () {
       const emit = this.$emit

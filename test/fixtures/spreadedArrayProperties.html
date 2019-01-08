@@ -1,0 +1,50 @@
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script type="module">
+    import wrap from '../../src/index.js';
+
+    var mixin0 = {
+        props: {
+            m0: {
+                type: String,
+                default: 'm0'
+            }
+        }
+    };
+    var mixin1 = {
+        props: {
+            'm-1': {
+                type: String,
+                default: 'm1'
+            }
+        }
+    };
+
+    var Parent0 = {
+        mixins:[mixin0, mixin1],
+        props: {
+            p0: {
+                type: String,
+                default: 'p0'
+            }
+        }
+    };
+    var Parent1 = {
+        extends: Parent0,
+        props: {
+            'p-1': {
+                type: String,
+                default: 'p1'
+            }
+        }
+    };
+
+    customElements.define('my-element', wrap(Vue, {
+//        extends: Parent1,
+        template: `<div> {{teSt1}} {{test2}} {{teSt3}}</div>`,
+        props:['te-st1', 'test2','teSt3']
+    }));
+
+    window.el = document.querySelector('my-element');
+</script>
+
+<my-element te-st1="hhh"></my-element>
